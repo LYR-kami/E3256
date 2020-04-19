@@ -1,0 +1,201 @@
+A
+enable
+config terminal
+
+hostname lab_A
+
+enable secret class
+
+line console 0
+login
+password cisco
+
+line vty 0 4
+login
+password cisco
+exit
+
+int eth 0
+ip address 192.5.5.1 255.255.255.0
+no shutdown
+int eth 1
+ip address 205.7.5.1 255.255.255.0
+no shutdown
+int ser 0
+ip address 201.100.11.1 255.255.255.0
+no shutdown
+clock rate 56000
+exit
+
+router rip
+network 192.5.5.1
+network 205.7.5.1
+network 201.100.11.1
+exit
+
+ip host lab_A 192.5.5.1 205.7.5.1 201.100.11.1
+ip host lab_B 219.17.100.1 199.6.13.1 201.100.11.2
+ip host lab_C 223.8.151.1 204.204.7.1 199.6.13.2
+ip host lab_D 210.93.105.1 204.204.7.2
+ip host lab_E 210.93.105.2
+
+
+
+B
+enable
+config terminal
+
+hostname lab_B
+
+enable secret class
+
+line console 0
+login
+password cisco
+
+line vty 0 4
+login
+password cisco
+exit
+
+int eth 0
+ip address 219.17.100.1 255.255.255.0
+no shutdown
+int ser 0
+ip address 199.6.13.1 255.255.255.0
+no shutdown
+clock rate 56000
+int ser 1
+ip address 201.100.11.2 255.255.255.0
+no shutdown
+exit
+
+router rip
+network 219.17.100.1
+network 199.6.13.1
+network 201.100.11.2
+exit
+
+ip host lab_A 192.5.5.1 205.7.5.1 201.100.11.1
+ip host lab_B 219.17.100.1 199.6.13.1 201.100.11.2
+ip host lab_C 223.8.151.1 204.204.7.1 199.6.13.2
+ip host lab_D 210.93.105.1 204.204.7.2
+ip host lab_E 210.93.105.2
+
+
+
+C
+enable
+config terminal
+
+hostname lab_C
+
+enable secret class
+
+line console 0
+login
+password cisco
+
+line vty 0 4
+login
+password cisco
+exit
+
+int eth 0
+ip address 223.8.151.1 255.255.255.0
+no shutdown
+int ser 0
+ip address 204.204.7.1 255.255.255.0
+no shutdown
+clock rate 56000
+int ser 1
+ip address 199.6.13.2 255.255.255.0
+no shutdown
+
+exit
+
+router rip
+network 223.8.151.1
+network 204.204.7.1
+network 199.6.13.2
+exit
+
+ip host lab_A 192.5.5.1 205.7.5.1 201.100.11.1
+ip host lab_B 219.17.100.1 199.6.13.1 201.100.11.2
+ip host lab_C 223.8.151.1 204.204.7.1 199.6.13.2
+ip host lab_D 210.93.105.1 204.204.7.2
+ip host lab_E 210.93.105.2
+
+
+
+D
+enable
+config terminal
+
+hostname lab_D
+
+enable secret class
+
+line console 0
+login
+password cisco
+
+line vty 0 4
+login
+password cisco
+exit
+
+int eth 0
+ip address 210.93.105.1 255.255.255.0
+no shutdown
+int ser 1
+ip address 204.204.7.2 255.255.255.0
+no shutdown
+clock rate 56000
+exit
+
+router rip
+network 210.93.105.1
+network 204.204.7.2
+exit
+
+ip host lab_A 192.5.5.1 205.7.5.1 201.100.11.1
+ip host lab_B 219.17.100.1 199.6.13.1 201.100.11.2
+ip host lab_C 223.8.151.1 204.204.7.1 199.6.13.2
+ip host lab_D 210.93.105.1 204.204.7.2
+ip host lab_E 210.93.105.2
+
+
+
+E
+enable
+config terminal
+
+hostname lab_E
+
+enable secret class
+
+line console 0
+login
+password cisco
+
+line vty 0 4
+login
+password cisco
+exit
+
+int eth 0
+ip address 210.93.105.2 255.255.255.0
+no shutdownip 
+exit
+
+router rip
+network 210.93.105.2
+exit
+
+ip host lab_A 192.5.5.1 205.7.5.1 201.100.11.1
+ip host lab_B 219.17.100.1 199.6.13.1 201.100.11.2
+ip host lab_C 223.8.151.1 204.204.7.1 199.6.13.2
+ip host lab_D 210.93.105.1 204.204.7.2
+ip host lab_E 210.93.105.2
+
